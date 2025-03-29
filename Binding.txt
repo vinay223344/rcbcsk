@@ -1,0 +1,44 @@
+app.component.html
+==================================
+<h1>{{title}}</h1> <br>
+<input [value]='title'><br><br>
+<p [style.color]='color'>THis is Yello</p>
+<p [class.special]='isspecial'> Hello </p>
+<button (click)="increment()">increment</button> 
+<button (click)="decrement()">decrement</button> 
+<h1>counter:{{counter}}</h1> 
+<input  [(ngModel)]="name" placeholder="'Enter text">
+<p>Yout input: {{name}}</p>
+
+app.component.ts
+============================================
+import { Component } from '@angular/core'; 
+@Component({ 
+  selector: 'app-root', 
+  templateUrl: './app.component.html', 
+  styleUrl: './app.component.css' 
+}) 
+ 
+export class AppComponent { 
+title='Full Stack Development'; 
+color='yellow';
+isspecial=true;
+name:string='';
+counter:number=0; 
+  increment() 
+  { 
+    this.counter=this.counter+1; 
+  } 
+  decrement() 
+  { 
+    this.counter=this.counter-1; 
+  } 
+} 
+
+app.component.css
+=================================
+.special {
+    font-weight: bold;
+    font-size: 20px;
+    color: green;
+  }
