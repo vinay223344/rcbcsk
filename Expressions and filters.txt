@@ -1,0 +1,40 @@
+app.component.html
+==================================
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <p>Title: {{title | uppercase }}</p>
+    <p>UserName: {{user.name | lowercase }}</p>
+    <p>Age: {{user.age | number }}</p>
+    <p>Class: {{user.class | json }}</p>
+    <p>Currency: {{currency | currency }}</p>
+    <p>Date: {{date | date: "medium"}}</p>
+  </body>
+  </html>
+
+app.component.ts
+====================================
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  user: { name: string, age: number, class: string };
+  title: string;
+  currency: number;
+  date: Date;
+
+  constructor() {
+    this.user = {
+      name: 'Ram',
+      age: 18,
+      class: 'CSE-A'
+    };
+    this.title = 'Expression and Filters';
+    this.currency = 106106;
+    this.date = new Date();
+  }
+}
